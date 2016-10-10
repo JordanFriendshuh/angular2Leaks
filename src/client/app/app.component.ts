@@ -13,7 +13,23 @@ import './operators';
 })
 
 export class AppComponent {
+
+  listA: Array<any> = [];
+
+  limit: number = 50;
+
   constructor() {
     console.log('Environment config', Config);
+    setTimeout(this.exampleFunc.bind(this), 1000);
   }
+
+  exampleFunc() {
+    if (this.listA.length > this.limit) {
+      this.listA = [];
+    } else {
+      this.listA.push(this.listA.length)
+    }
+    setTimeout(this.exampleFunc.bind(this), 1000);
+  }
+
 }
